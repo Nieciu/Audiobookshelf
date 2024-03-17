@@ -20,9 +20,6 @@ services:
       - 443:443
       - 80:80
     volumes:
-      - ./nginx/log/error.log:/var/log/nginx/error.log
-      - ./nginx/log/audiobookshelf.access.log:/var/log/nginx/audiobookshelf.access.log
-      - ./nginx/log/audiobookshelf.error.log:/var/log/nginx/audiobookshelf.error.log
       - ./nginx/certs:/etc/ssl/audiobook
       - ./nginx/conf:/etc/nginx
     networks:

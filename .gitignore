@@ -3,7 +3,6 @@
 
 #ignore files made by running docker-cocmpose.yml file
 audiobookshelf/
-nginx/log
 
 #safety measure to not copy certificate
 nginx/certs
