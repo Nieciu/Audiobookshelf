@@ -4,8 +4,6 @@ services:
     image: ghcr.io/advplyr/audiobookshelf:latest
     expose:
       - 80
-    ports:
-      - 
     volumes:
       - ./audiobookshelf/audiobooks:/audiobooks
       - ./audiobookshelf/podcasts:/podcasts
