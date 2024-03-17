@@ -3,7 +3,9 @@ services:
   audiobookshelf:
     image: ghcr.io/advplyr/audiobookshelf:latest
     expose:
-      - 13378
+      - 80
+    ports:
+      - 
     volumes:
       - ./audiobookshelf/audiobooks:/audiobooks
       - ./audiobookshelf/podcasts:/podcasts
@@ -20,13 +22,17 @@ services:
       - 443:443
       - 80:80
     volumes:
-      - ./nginx/log:/var/log
+      - ./nginx/log/error.log:/var/log/nginx/error.log
+      - ./nginx/log/audiobookshelf.access.log:/var/log/nginx/audiobookshelf.access.log
+      - ./nginx/log/audiobookshelf.error.log:/var/log/nginx/audiobookshelf.error.log
       - ./nginx/certs:/etc/ssl/audiobook
       - ./nginx/conf:/etc/nginx
     networks:
       - proxy
     env_file:
       - .env.dev
+    depends_on:
+      - audiobookshelf
 
 networks:
   proxy:
